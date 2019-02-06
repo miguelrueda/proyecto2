@@ -14,6 +14,7 @@ import { CategoriesComponent } from './components/tabs/categories/categories.com
 import { SearchComponent } from './components/shared/search/search.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { FormsComponent } from './components/shared/forms/forms.component';
+import { CineService } from './services/cine.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { FormsComponent } from './components/shared/forms/forms.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    CineService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
