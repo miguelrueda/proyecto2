@@ -1,7 +1,6 @@
 export interface Actor {
-    nombre: String;
-    descripcion: String;
-    edad: number;
-    imagen: String;
-    id: number;
+    name: string;
+    age: number;
+    nationality: string;
+    gender: string;
 }

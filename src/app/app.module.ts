@@ -16,6 +16,11 @@ import { CardComponent } from './components/shared/card/card.component';
 import { FormsComponent } from './components/shared/forms/forms.component';
 import { CineService } from './services/cine.service';
 
+// Firebase
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,11 +34,13 @@ import { CineService } from './services/cine.service';
     CategoriesComponent,
     SearchComponent,
     CardComponent,
-    FormsComponent
+    FormsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [
     CineService

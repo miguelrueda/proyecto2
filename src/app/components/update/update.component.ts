@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CineService } from 'src/app/services/cine.service';
 
 @Component({
   selector: 'app-update',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cineService: CineService) {
+    this.cineService.create('actors', {
+      name: 'kevin',
+      age: 20,
+      nationality: 'mexican',
+      gender: 'male'
+    });
+   }
 
   ngOnInit() {
   }
