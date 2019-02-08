@@ -9,10 +9,10 @@ import { CineService } from 'src/app/services/cine.service';
 export class UpdateComponent implements OnInit {
 
   constructor(private cineService: CineService) {
-    this.cineService.create('actors', {
-      name: 'kevin',
+    this.cineService.update('actors', '-LY9ubZExn4UrP3oya8d', {
+      name: 'kev',
       age: 20,
-      nationality: 'mexican',
+      nationality: 'canadian',
       gender: 'male'
     });
    }

@@ -19,17 +19,17 @@ export class CineService {
     }
   }
 
-  create(cat: string, param: Object) {
+  create(cat: string, param: Object): Promise<any> {
     const itemRef = this.db.list(cat);
     return itemRef.push(param);
   }
 
-  update(cat: string, key: string, actor: Actor) {
+  update(cat: string, key: string, param: Object): Promise<any> {
     const itemRef = this.db.list(cat);
-    return itemRef.update(key, actor);
+    return itemRef.update(key, param);
   }
 
-  delete(cat: string, key: string) {
+  delete(cat: string, key: string): Promise<any> {
     const itemRef = this.db.list(cat);
     return itemRef.remove(key);
   }
