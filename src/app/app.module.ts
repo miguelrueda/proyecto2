@@ -20,6 +20,7 @@ import { CineService } from './services/cine.service';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
+import { ReadDataComponent } from './components/shared/read-data/read-data.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/da
     SearchComponent,
     CardComponent,
     FormsComponent,
+    ReadDataComponent,
   ],
   imports: [
     BrowserModule,

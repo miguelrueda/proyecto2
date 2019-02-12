@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { Actor } from '../interfaces/actor';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,17 @@ export class CineService {
     if (key) {
       return this.db.list(`${cat}/${key}`).valueChanges();
     } else {
-      return this.db.list(cat).valueChanges();
+      // return this.db.list(cat).valueChanges();
+      return this.db.list(`${cat}`).snapshotChanges().pipe(
+        map(items => {
+         return items.map(a => {
+           const data = a.payload.val();
+           const _key = a.payload.key;
+
+           return { _key, data };
+         });
+        })
+     );
     }
   }
 

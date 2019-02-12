@@ -9,12 +9,12 @@ import { CineService } from 'src/app/services/cine.service';
 export class CreateComponent implements OnInit {
 
   constructor(private cineService: CineService) {
-    this.cineService.create('actors', {
-      name: 'kevin',
-      age: 20,
-      nationality: 'mexican',
-      gender: 'male'
-    });
+    // this.cineService.create('actors', {
+    //   name: 'kevin',
+    //   age: 20,
+    //   nationality: 'mexican',
+    //   gender: 'male'
+    // });
    }
 
   ngOnInit() {
