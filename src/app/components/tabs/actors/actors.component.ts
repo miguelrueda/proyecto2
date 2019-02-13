@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CineService } from 'src/app/services/cine.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-actors',
@@ -8,28 +9,21 @@ import { CineService } from 'src/app/services/cine.service';
 })
 export class ActorsComponent implements OnInit {
 
-  actors: any[];
-  promise: Promise<any[]>;
+  actors: any = {};
+  subject = new Subject();
 
-  constructor(private cineService: CineService) { }
+  constructor(private cineService: CineService) {
+    this.cineService.read('actors').subscribe(
+      data => { this.subject.next(data); },
+      error => { console.log('error en el read'); }
+    );
+  }
 
   ngOnInit() {
-    this.cineService.read('actors').subscribe(data => {
-      const promiseX: Promise<any[]> = new Promise((resolve, reject) => {
-        if (data.length > 0) {
-          resolve(data);
-        } else {
-          reject('no data');
-        }
-      });
-      this.promise = promiseX;
-      this.promise.then(data1 => {
-        this.actors = data1;
-      }).catch(
-        error => console.log(error)
-      );
+    this.subject.subscribe(data => {
+      console.log('mi data', data);
+      this.actors = data;
     });
-
   }
 
 }

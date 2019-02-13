@@ -31,8 +31,11 @@ const routes: Routes = [
     path: 'update', component: UpdateComponent,
     children: [
       { path: 'actor', component: ActorsComponent },
+      { path: 'actor/:id', component: ActorsComponent },
       { path: 'movie', component: MoviesComponent },
+      { path: 'movie/:id', component: MoviesComponent },
       { path: 'category', component: CategoriesComponent },
+      { path: 'category/:id', component: CategoriesComponent },
       { path: '**', pathMatch: 'full', redirectTo: 'actor' }
     ]
   },
@@ -40,8 +43,11 @@ const routes: Routes = [
     path: 'delete', component: DeleteComponent,
     children: [
       { path: 'actor', component: ActorsComponent },
+      { path: 'actor/:id', component: ActorsComponent },
       { path: 'movie', component: MoviesComponent },
+      { path: 'movie/:id', component: MoviesComponent },
       { path: 'category', component: CategoriesComponent },
+      { path: 'category/:id', component: CategoriesComponent },
       { path: '**', pathMatch: 'full', redirectTo: 'actor' }
     ]
   },

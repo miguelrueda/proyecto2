@@ -1,7 +1,43 @@
 <div class="card" style="width: 18rem">
-  <div class="card-body">
-      <h5 class="card-title">{{inputData.data.name}}</h5>
+  <div *ngIf="actor">
+    <div class="card-body">
+      <h5 class="card-title">{{actor.data.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{actor._key}}</h6>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{actor.data.gender}}</li>
+        <li class="list-group-item">Age: {{actor.data.age}}</li>
+        <li class="list-group-item">Nationality: {{actor.data.nationality}}</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a [routerLink]="[ '/update/actor', actor._key ]" href="#" class="btn btn-primary">Update</a>
+      <a [routerLink]="[ '/delete/actor', actor._key ]" href="#" class="btn btn-danger">Delete</a>
+    </div>
   </div>
-  <div class="card-footer ext-muted">
+  <div *ngIf="movie">
+    <div class="card-body">
+      <h5 class="card-title">{{movie.data.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{movie._key}}</h6>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{movie.data.genre}}</li>
+        <li class="list-group-item">Country: {{movie.data.country}}</li>
+        <li class="list-group-item">Year: {{movie.data.year}}</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a [routerLink]="[ '/update/movie', movie._key ]" href="#" class="btn btn-primary">Update</a>
+      <a [routerLink]="[ '/delete/movie', movie._key ]" href="#" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+  <div *ngIf="category">
+    <h5 class="card-header">Category</h5>
+    <div class="card-body">
+      <h5 class="card-title">{{category.data.genre}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{category._key}}</h6>
+    </div>
+    <div class="card-footer">
+      <a [routerLink]="[ '/update/category', category._key ]" href="#" class="btn btn-primary">Update</a>
+      <a [routerLink]="[ '/delete/category', category._key ]" href="#" class="btn btn-danger">Delete</a>
+    </div>
   </div>
 </div>

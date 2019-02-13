@@ -1,6 +1,7 @@
 <div class="container mt-5">
-    <div class="card-columns">
-        <app-read-data *ngFor="let item of actors" 
-        [inputData]="item"></app-read-data>
+    <div *ngIf="actors.length > 0">
+        <div class="card-columns">
+            <app-read-data *ngFor="let item of actors" [actor]="item"></app-read-data>
+        </div>
     </div>
 </div>

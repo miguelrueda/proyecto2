@@ -1,3 +1,7 @@
-<p>
-  categories works!
-</p>
+<div class="container mt-5">
+    <div *ngIf="categories.length > 0">
+        <div class="card-columns">
+            <app-read-data *ngFor="let item of categories" [category]="item"></app-read-data>
+        </div>
+    </div>
+</div>

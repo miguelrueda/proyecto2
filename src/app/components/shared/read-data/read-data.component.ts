@@ -7,7 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ReadDataComponent implements OnInit {
 
-  @Input() inputData: any;
+  @Input() actor: any;
+  @Input() movie: any;
+  @Input() category: any;
 
   constructor() { }
 
